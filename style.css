@@ -192,15 +192,17 @@ html, body {
 }
 
 .row {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
 }
 
 .row-label {
+  position: absolute;
+  left: 0;
   font-size: 11px;
-  color: var(--text-tertiary);
+  color: #ffffff;
   min-width: 18px;
   text-align: right;
   font-family: var(--font-mono);
@@ -212,7 +214,8 @@ html, body {
 }
 
 .row-suffix {
-  margin-left: 6px;
+  position: absolute;
+  right: 0;
   font-size: 11px;
   color: var(--text-tertiary);
   min-width: 44px;
