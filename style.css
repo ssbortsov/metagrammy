@@ -87,9 +87,9 @@ html, body {
 
 .task-label {
   font-size: 13px;
-  color: #ffffff;
+  color: rgba(255,255,255,0.7);
   text-align: center;
-  flex: 1;
+  margin-bottom: 4px;
 }
 
 .btn-topbar {
