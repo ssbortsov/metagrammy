@@ -45,8 +45,15 @@ const KEYBOARD_ROWS = [
 ];
 
 // Словарь — все слова из всех цепочек, как mvp-валидатор
+// Fallback-словарь из слов цепочек (используется если dict.js не загружен)
 const WORD_DICT = new Set();
 PUZZLES.forEach(p => p.solution.forEach(w => WORD_DICT.add(w)));
+
+function inDict(word) {
+  const w = word.replace(/Ё/g, 'Е');
+  if (window.RU_DICT) return window.RU_DICT.has(w);
+  return WORD_DICT.has(word);
+}
 
 // =====================================================
 // Состояние
@@ -279,7 +286,7 @@ function confirmDraft() {
     setFeedback('Это слово уже было', 'err');
     return;
   }
-  if (!WORD_DICT.has(newWord)) {
+  if (!inDict(newWord)) {
     setFeedback('Слова «' + newWord + '» нет в словаре', 'err');
     return;
   }
