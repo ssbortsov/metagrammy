@@ -67,10 +67,24 @@ html, body {
 #app {
   max-width: 420px;
   margin: 0 auto;
-  padding: 1rem 1rem 2rem;
-  min-height: 100vh;
+  padding: 1rem 1rem 0;
+  height: 100dvh;
+  height: 100vh; /* fallback */
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+.scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bottom-area {
+  flex-shrink: 0;
+  padding-bottom: env(safe-area-inset-bottom, 8px);
 }
 
 .topbar {
@@ -320,7 +334,6 @@ html, body {
 }
 
 .keyboard {
-  margin-top: auto;
   padding-top: 8px;
 }
 

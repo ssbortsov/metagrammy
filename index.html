@@ -32,13 +32,15 @@
 
     <div id="task-title" class="task-title"></div>
 
-    <section id="ladder" class="ladder" aria-label="Лестница превращений"></section>
+    <div class="scroll-area">
+      <section id="ladder" class="ladder" aria-label="Лестница превращений"></section>
+      <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+    </div>
 
-    <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
-
-    <button id="btn-check" class="btn btn-check">Проверить</button>
-
-    <section id="keyboard" class="keyboard" aria-label="Клавиатура"></section>
+    <div class="bottom-area">
+      <button id="btn-check" class="btn btn-check">Проверить</button>
+      <section id="keyboard" class="keyboard" aria-label="Клавиатура"></section>
+    </div>
 
   </main>
 
