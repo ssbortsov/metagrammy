@@ -81,6 +81,11 @@ html, body {
   gap: 8px;
 }
 
+.topbar-left {
+  display: flex;
+  gap: 6px;
+}
+
 .topbar-right {
   display: flex;
   gap: 6px;

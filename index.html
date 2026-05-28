@@ -11,9 +11,14 @@
 <body>
   <main id="app">
     <header class="topbar">
-      <button id="btn-puzzles" class="btn btn-topbar" aria-label="Уровни">
-        <i class="ti ti-list" aria-hidden="true"></i>
-      </button>
+      <div class="topbar-left">
+        <button id="btn-puzzles" class="btn btn-topbar" aria-label="Уровни">
+          <i class="ti ti-list" aria-hidden="true"></i>
+        </button>
+        <button id="btn-reset" class="btn btn-topbar" aria-label="Сбросить">
+          <i class="ti ti-refresh" aria-hidden="true"></i>
+        </button>
+      </div>
       <div class="task-label" id="task-label">Загадка 1</div>
       <div class="topbar-right">
         <button id="btn-hint" class="btn btn-topbar" aria-label="Подсказка">
@@ -21,9 +26,6 @@
         </button>
         <button id="btn-undo" class="btn btn-topbar" aria-label="Назад">
           <i class="ti ti-arrow-back-up" aria-hidden="true"></i>
-        </button>
-        <button id="btn-reset" class="btn btn-topbar" aria-label="Сбросить">
-          <i class="ti ti-refresh" aria-hidden="true"></i>
         </button>
       </div>
     </header>
