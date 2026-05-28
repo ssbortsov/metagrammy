@@ -289,12 +289,13 @@ function confirmDraft() {
   if (newWord === target) {
     const par = PUZZLES[state.current].steps;
     const used = state.chain.length - 1;
-    const verdict = used <= par ? 'идеально' : used <= par + 2 ? 'неплохо' : 'есть короче';
-    setFeedback('Готово за ' + used + ' ходов — ' + verdict, 'ok');
     state.draft = null;
 
     // Виброотклик победы, если поддерживается
     if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
+
+    // Показываем призовой экран
+    setTimeout(() => showVictory(used, par), 600);
   } else {
     initDraft();
     setFeedback('', '');
@@ -390,6 +391,38 @@ function renderKeyboard() {
     }
     kb.appendChild(row);
   });
+}
+
+// =====================================================
+// Призовой экран
+// =====================================================
+
+function showVictory(used, par) {
+  const isLast = state.current >= PUZZLES.length - 1;
+  let text;
+  if (used <= par) {
+    text = 'Идеально! Ты уложился в ' + used + ' ' + stepsWord(used) + ' — это оптимально.';
+  } else if (used <= par + 2) {
+    text = 'Неплохо! ' + used + ' ' + stepsWord(used) + '. Можно сделать за ' + par + '.';
+  } else {
+    text = used + ' ' + stepsWord(used) + '. Попробуй ещё раз — оптимально ' + par + '.';
+  }
+  $('victory-text').textContent = text;
+  const btn = $('btn-next-level');
+  if (isLast) {
+    btn.textContent = 'К уровням';
+    btn.onclick = () => { $('victory-modal').hidden = true; togglePuzzles(); };
+  } else {
+    btn.textContent = 'Следующий уровень';
+    btn.onclick = () => { $('victory-modal').hidden = true; loadPuzzle(state.current + 1); };
+  }
+  $('victory-modal').hidden = false;
+}
+
+function stepsWord(n) {
+  if (n % 10 === 1 && n % 100 !== 11) return 'ход';
+  if ([2,3,4].includes(n % 10) && ![12,13,14].includes(n % 100)) return 'хода';
+  return 'ходов';
 }
 
 // =====================================================
