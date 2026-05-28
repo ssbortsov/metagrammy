@@ -110,7 +110,7 @@ function renderTask() {
 function buildRow(numText, word, opts) {
   opts = opts || {};
   const row = document.createElement('div');
-  row.className = 'row';
+  row.className = 'row' + (opts.kind === 'draft' ? ' is-draft' : '');
 
   const num = document.createElement('span');
   num.className = 'row-label';
