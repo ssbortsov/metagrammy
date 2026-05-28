@@ -56,6 +56,81 @@
     </div>
   </div>
 
+  <!-- Онбординг -->
+  <div id="onboarding" class="onboarding" hidden>
+    <div class="ob-slides">
+
+      <!-- Экран 1 -->
+      <div class="ob-slide" id="ob-slide-1">
+        <div class="ob-content">
+          <div class="ob-logo">М</div>
+          <h1 class="ob-title">Метаграммы</h1>
+          <p class="ob-desc">Словесная игра, придуманная<br>Льюисом Кэрроллом в 1879 году</p>
+          <p class="ob-subdesc">Превращай одно слово в другое,<br>меняя по одной букве за ход</p>
+        </div>
+        <button class="ob-btn" onclick="obNext()">Далее</button>
+      </div>
+
+      <!-- Экран 2 -->
+      <div class="ob-slide" id="ob-slide-2" hidden>
+        <div class="ob-content">
+          <h2 class="ob-title">Как играть</h2>
+          <p class="ob-desc">Например, из МАМЫ сделай ПАПУ<br>за 3 хода:</p>
+          <div class="ob-example">
+            <div class="ob-word">
+              <div class="ob-cell ob-locked">М</div>
+              <div class="ob-cell ob-locked">А</div>
+              <div class="ob-cell ob-locked">М</div>
+              <div class="ob-cell ob-locked">А</div>
+            </div>
+            <div class="ob-word">
+              <div class="ob-cell ob-done">Л</div>
+              <div class="ob-cell ob-same">А</div>
+              <div class="ob-cell ob-same">М</div>
+              <div class="ob-cell ob-same">А</div>
+            </div>
+            <div class="ob-word">
+              <div class="ob-cell ob-same">Л</div>
+              <div class="ob-cell ob-same">А</div>
+              <div class="ob-cell ob-done">П</div>
+              <div class="ob-cell ob-same">А</div>
+            </div>
+            <div class="ob-word">
+              <div class="ob-cell ob-done">П</div>
+              <div class="ob-cell ob-same">А</div>
+              <div class="ob-cell ob-same">П</div>
+              <div class="ob-cell ob-same">А</div>
+            </div>
+          </div>
+          <p class="ob-hint-text">Изменённая буква подсвечена</p>
+        </div>
+        <button class="ob-btn" onclick="obNext()">Далее</button>
+      </div>
+
+      <!-- Экран 3 -->
+      <div class="ob-slide" id="ob-slide-3" hidden>
+        <div class="ob-content">
+          <h2 class="ob-title">Правила</h2>
+          <ul class="ob-rules">
+            <li><i class="ti ti-check"></i> Меняй ровно одну букву за ход</li>
+            <li><i class="ti ti-check"></i> Каждое слово должно существовать</li>
+            <li><i class="ti ti-check"></i> Нельзя использовать слово дважды</li>
+            <li><i class="ti ti-bulb"></i> Чем меньше ходов — тем лучше!</li>
+          </ul>
+        </div>
+        <button class="ob-btn ob-btn-start" onclick="obFinish()">Начать играть!</button>
+      </div>
+
+    </div>
+
+    <!-- Точки-индикаторы -->
+    <div class="ob-dots">
+      <span class="ob-dot ob-dot-active" id="ob-dot-0"></span>
+      <span class="ob-dot" id="ob-dot-1"></span>
+      <span class="ob-dot" id="ob-dot-2"></span>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -473,6 +473,197 @@ html, body {
   font-family: var(--font-mono);
 }
 
+/* ===================== ОНБОРДИНГ ===================== */
+
+.onboarding {
+  position: fixed;
+  inset: 0;
+  background: #EF3124;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 env(safe-area-inset-bottom, 16px);
+}
+
+.onboarding[hidden] { display: none; }
+
+.ob-slides {
+  flex: 1;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ob-slide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 24px 24px;
+  animation: fade-in 0.25s ease;
+}
+
+.ob-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.ob-logo {
+  width: 80px;
+  height: 80px;
+  background: #ffffff;
+  color: #EF3124;
+  border-radius: 20px;
+  font-size: 48px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  margin-bottom: 8px;
+}
+
+.ob-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.ob-desc {
+  font-size: 16px;
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.ob-subdesc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.ob-example {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.ob-word {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.ob-cell {
+  width: 48px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.ob-locked {
+  background: #ffffff;
+  color: #000000;
+}
+
+.ob-same {
+  background: #ffffff;
+  color: #000000;
+}
+
+.ob-done {
+  background: #ffffff;
+  color: #EF3124;
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+.ob-hint-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+}
+
+.ob-rules {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  width: 100%;
+}
+
+.ob-rules li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.ob-rules li i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.ob-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 17px;
+  font-weight: 700;
+  background: #ffffff;
+  color: #EF3124;
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: transform 0.1s ease;
+}
+
+.ob-btn:active { transform: scale(0.97); }
+
+.ob-btn-start {
+  background: #ffffff;
+  color: #EF3124;
+}
+
+.ob-dots {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 16px;
+}
+
+.ob-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  transition: background 0.2s ease, width 0.2s ease;
+}
+
+.ob-dot-active {
+  background: #ffffff;
+  width: 20px;
+  border-radius: 4px;
+}
+
 /* Smaller screens — keep cells from overflowing on iPhone SE etc */
 @media (max-width: 360px) {
   .cell {

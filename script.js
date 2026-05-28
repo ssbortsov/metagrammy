@@ -424,8 +424,39 @@ function init() {
   renderKeyboard();
 }
 
+// =====================================================
+// Онбординг
+// =====================================================
+
+let obCurrentSlide = 0;
+const OB_TOTAL = 3;
+
+function obNext() {
+  obCurrentSlide++;
+  if (obCurrentSlide >= OB_TOTAL) { obFinish(); return; }
+  for (let i = 1; i <= OB_TOTAL; i++) {
+    $('ob-slide-' + i).hidden = (i !== obCurrentSlide + 1);
+  }
+  for (let i = 0; i < OB_TOTAL; i++) {
+    const dot = $('ob-dot-' + i);
+    dot.className = 'ob-dot' + (i === obCurrentSlide ? ' ob-dot-active' : '');
+  }
+}
+
+function obFinish() {
+  localStorage.setItem('ob_done', '1');
+  $('onboarding').hidden = true;
+}
+
+function maybeShowOnboarding() {
+  if (!localStorage.getItem('ob_done')) {
+    $('onboarding').hidden = false;
+  }
+}
+
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('DOMContentLoaded', () => { init(); maybeShowOnboarding(); });
 } else {
   init();
+  maybeShowOnboarding();
 }
