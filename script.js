@@ -430,7 +430,7 @@ function init() {
 // =====================================================
 
 let obCurrentSlide = 0;
-const OB_TOTAL = 3;
+const OB_TOTAL = 2;
 
 function obNext() {
   obCurrentSlide++;
