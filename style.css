@@ -295,12 +295,12 @@ html, body {
   min-height: 20px;
   text-align: center;
   margin-bottom: 8px;
-  color: var(--text-secondary);
+  color: #ffffff;
 }
 
-.feedback.ok { color: var(--text-success); }
-.feedback.err { color: var(--text-danger); }
-.feedback.hint { color: var(--text-info); }
+.feedback.ok { color: #ffffff; }
+.feedback.err { color: #ffffff; }
+.feedback.hint { color: #ffffff; }
 
 
 .btn-check {
