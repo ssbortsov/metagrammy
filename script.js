@@ -404,6 +404,7 @@ function init() {
   $('btn-undo').addEventListener('click', undo);
   $('btn-reset').addEventListener('click', reset);
   $('btn-puzzles').addEventListener('click', togglePuzzles);
+  $('btn-home').addEventListener('click', showOnboarding);
 
   // Физическая клавиатура — для десктопа
   document.addEventListener('keydown', e => {
@@ -448,9 +449,20 @@ function obFinish() {
   $('onboarding').hidden = true;
 }
 
+function showOnboarding() {
+  obCurrentSlide = 0;
+  for (let i = 1; i <= OB_TOTAL; i++) {
+    $('ob-slide-' + i).hidden = (i !== 1);
+  }
+  for (let i = 0; i < OB_TOTAL; i++) {
+    $('ob-dot-' + i).className = 'ob-dot' + (i === 0 ? ' ob-dot-active' : '');
+  }
+  $('onboarding').hidden = false;
+}
+
 function maybeShowOnboarding() {
   if (!localStorage.getItem('ob_done')) {
-    $('onboarding').hidden = false;
+    showOnboarding();
   }
 }
 
