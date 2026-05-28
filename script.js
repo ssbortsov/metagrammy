@@ -208,10 +208,8 @@ function renderLadder() {
       kind: 'draft',
       baseWord: state.draft.baseWord,
       activeIdx: state.draft.activeIdx,
-      suffix: '<button id="btn-confirm" class="btn btn-confirm">OK</button>'
+      suffix: ''
     }));
-    const confirmBtn = $('btn-confirm');
-    if (confirmBtn) confirmBtn.addEventListener('click', confirmDraft);
   }
 
   // 4. Пустые будущие строки
@@ -400,6 +398,7 @@ function renderKeyboard() {
 // =====================================================
 
 function init() {
+  $('btn-check').addEventListener('click', confirmDraft);
   $('btn-hint').addEventListener('click', hint);
   $('btn-undo').addEventListener('click', undo);
   $('btn-reset').addEventListener('click', reset);
