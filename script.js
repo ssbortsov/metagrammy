@@ -188,7 +188,7 @@ function renderLadder() {
   ladder.innerHTML = '';
 
   // 1. Старт
-  ladder.appendChild(buildRow('1', p.from, {
+  ladder.appendChild(buildRow('', p.from, {
     kind: 'locked',
     suffix: ''
   }));
@@ -235,7 +235,7 @@ function renderLadder() {
   if (!lastIsTarget) {
     const previewWrap = document.createElement('div');
     previewWrap.className = 'preview-wrap';
-    previewWrap.appendChild(buildRow(String(totalSteps + 1), target, {
+    previewWrap.appendChild(buildRow('', target, {
       kind: 'target',
       suffix: ''
     }));
