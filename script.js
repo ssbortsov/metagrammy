@@ -188,7 +188,7 @@ function renderLadder() {
   ladder.innerHTML = '';
 
   // 1. Старт
-  ladder.appendChild(buildRow('0', p.from, {
+  ladder.appendChild(buildRow('1', p.from, {
     kind: 'locked',
     suffix: ''
   }));
@@ -196,7 +196,7 @@ function renderLadder() {
   // 2. Подтверждённые ходы
   for (let i = 1; i < state.chain.length; i++) {
     const isTarget = state.chain[i] === target;
-    ladder.appendChild(buildRow(String(i), state.chain[i], {
+    ladder.appendChild(buildRow(String(i + 1), state.chain[i], {
       kind: isTarget ? 'target' : 'changed',
       baseWord: state.chain[i - 1],
       suffix: ''
@@ -208,7 +208,7 @@ function renderLadder() {
 
   // 3. Черновик
   if (state.draft && !lastIsTarget) {
-    const draftRowIndex = state.chain.length;
+    const draftRowIndex = state.chain.length + 1;
     ladder.appendChild(buildRow(String(draftRowIndex), state.draft.letters.join(''), {
       kind: 'draft',
       baseWord: state.draft.baseWord,
@@ -223,7 +223,7 @@ function renderLadder() {
     totalSteps - committedCount - (state.draft && !lastIsTarget ? 1 : 0)
   );
   for (let k = 0; k < futureEmptyCount; k++) {
-    const rowNum = committedCount + (state.draft && !lastIsTarget ? 1 : 0) + 1 + k;
+    const rowNum = committedCount + (state.draft && !lastIsTarget ? 1 : 0) + 2 + k;
     ladder.appendChild(buildRow(String(rowNum), null, {
       kind: 'empty',
       length: wordLen,
@@ -235,7 +235,7 @@ function renderLadder() {
   if (!lastIsTarget) {
     const previewWrap = document.createElement('div');
     previewWrap.className = 'preview-wrap';
-    previewWrap.appendChild(buildRow(String(totalSteps), target, {
+    previewWrap.appendChild(buildRow(String(totalSteps + 1), target, {
       kind: 'target',
       suffix: ''
     }));
