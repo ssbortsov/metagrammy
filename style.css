@@ -236,7 +236,7 @@ html, body {
 
 .cell.locked {
   background: var(--bg-secondary);
-  color: var(--text-secondary);
+  color: #000000;
 }
 
 .cell.changed {
@@ -246,9 +246,9 @@ html, body {
 }
 
 .cell.target {
-  background: var(--bg-success);
-  color: var(--text-success);
-  border-color: var(--border-success);
+  background: var(--bg-secondary);
+  color: #000000;
+  border-color: var(--border-tertiary);
 }
 
 .cell.active {
