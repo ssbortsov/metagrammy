@@ -466,9 +466,16 @@ function maybeShowOnboarding() {
   }
 }
 
+function setVh() {
+  document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+}
+
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => { init(); maybeShowOnboarding(); });
+  document.addEventListener('DOMContentLoaded', () => { setVh(); init(); maybeShowOnboarding(); });
 } else {
+  setVh();
   init();
   maybeShowOnboarding();
 }
+
+window.addEventListener('resize', setVh);
