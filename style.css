@@ -493,17 +493,36 @@ html, body {
   flex: 1;
   width: 100%;
   max-width: 420px;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
 
 .ob-slide {
-  flex: 1;
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 48px 24px 24px;
-  animation: fade-in 0.25s ease;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+}
+
+.ob-slide.ob-active {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.ob-slide.ob-left {
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ob-slide.ob-right {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .ob-content {

@@ -432,16 +432,22 @@ function init() {
 let obCurrentSlide = 0;
 const OB_TOTAL = 2;
 
-function obNext() {
-  obCurrentSlide++;
-  if (obCurrentSlide >= OB_TOTAL) { obFinish(); return; }
-  for (let i = 1; i <= OB_TOTAL; i++) {
-    $('ob-slide-' + i).hidden = (i !== obCurrentSlide + 1);
+function obGoTo(idx) {
+  for (let i = 0; i < OB_TOTAL; i++) {
+    const slide = $('ob-slide-' + (i + 1));
+    if (i < idx) slide.className = 'ob-slide ob-left';
+    else if (i === idx) slide.className = 'ob-slide ob-active';
+    else slide.className = 'ob-slide ob-right';
   }
   for (let i = 0; i < OB_TOTAL; i++) {
-    const dot = $('ob-dot-' + i);
-    dot.className = 'ob-dot' + (i === obCurrentSlide ? ' ob-dot-active' : '');
+    $('ob-dot-' + i).className = 'ob-dot' + (i === idx ? ' ob-dot-active' : '');
   }
+  obCurrentSlide = idx;
+}
+
+function obNext() {
+  if (obCurrentSlide + 1 >= OB_TOTAL) { obFinish(); return; }
+  obGoTo(obCurrentSlide + 1);
 }
 
 function obFinish() {
@@ -450,13 +456,7 @@ function obFinish() {
 }
 
 function showOnboarding() {
-  obCurrentSlide = 0;
-  for (let i = 1; i <= OB_TOTAL; i++) {
-    $('ob-slide-' + i).hidden = (i !== 1);
-  }
-  for (let i = 0; i < OB_TOTAL; i++) {
-    $('ob-dot-' + i).className = 'ob-dot' + (i === 0 ? ' ob-dot-active' : '');
-  }
+  obGoTo(0);
   $('onboarding').hidden = false;
 }
 
