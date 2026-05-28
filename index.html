@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#fafaf7" />
+  <title>Метаграммы — словесная игра</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app">
+    <header class="topbar">
+      <button id="btn-puzzles" class="btn btn-ghost" aria-label="Уровни">
+        <i class="ti ti-list" aria-hidden="true"></i>
+        <span>Уровни</span>
+      </button>
+      <div class="task-label" id="task-label">Загадка 1</div>
+      <button id="btn-reset" class="btn btn-ghost" aria-label="Сбросить">
+        <i class="ti ti-refresh" aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <section class="task-bar" aria-label="Текущая задача">
+      <span id="task-from" class="task-word">МАМА</span>
+      <i class="ti ti-arrow-right task-arrow" aria-hidden="true"></i>
+      <span id="task-to" class="task-word">ПАПА</span>
+      <span id="task-par" class="task-par">3 хода</span>
+    </section>
+
+    <section id="ladder" class="ladder" aria-label="Лестница превращений"></section>
+
+    <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+    <div class="action-row">
+      <button id="btn-hint" class="btn">
+        <i class="ti ti-bulb" aria-hidden="true"></i>
+        <span>Подсказка</span>
+      </button>
+      <button id="btn-undo" class="btn">
+        <i class="ti ti-arrow-back-up" aria-hidden="true"></i>
+        <span>Назад</span>
+      </button>
+    </div>
+
+    <section id="keyboard" class="keyboard" aria-label="Клавиатура"></section>
+
+    <div id="puzzle-list" class="puzzle-list" hidden></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
