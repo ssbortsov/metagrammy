@@ -344,15 +344,16 @@ function loadPuzzle(i) {
   state.chain = [PUZZLES[i].from];
   initDraft();
   setFeedback('', '');
-  $('puzzle-list').hidden = true;
+  $('puzzle-modal').hidden = true;
   renderTask();
   renderLadder();
 }
 
 function togglePuzzles() {
-  const el = $('puzzle-list');
-  if (el.hidden) {
-    el.innerHTML = '';
+  const modal = $('puzzle-modal');
+  if (modal.hidden) {
+    const list = $('puzzle-list');
+    list.innerHTML = '';
     PUZZLES.forEach((p, i) => {
       const row = document.createElement('div');
       row.className = 'puzzle-item' + (i === state.current ? ' current' : '');
@@ -360,11 +361,11 @@ function togglePuzzles() {
         '<span class="puzzle-item-pair">' + p.from + ' → ' + p.to + '</span>' +
         '<span class="puzzle-item-steps">' + p.steps + ' ходов</span>';
       row.addEventListener('click', () => loadPuzzle(i));
-      el.appendChild(row);
+      list.appendChild(row);
     });
-    el.hidden = false;
+    modal.hidden = false;
   } else {
-    el.hidden = true;
+    modal.hidden = true;
   }
 }
 
@@ -400,6 +401,8 @@ function renderKeyboard() {
 function init() {
   $('btn-check').addEventListener('click', confirmDraft);
   $('btn-hint').addEventListener('click', hint);
+  $('btn-modal-close').addEventListener('click', () => { $('puzzle-modal').hidden = true; });
+  $('puzzle-modal').addEventListener('click', e => { if (e.target === $('puzzle-modal')) $('puzzle-modal').hidden = true; });
   $('btn-undo').addEventListener('click', undo);
   $('btn-reset').addEventListener('click', reset);
   $('btn-puzzles').addEventListener('click', togglePuzzles);

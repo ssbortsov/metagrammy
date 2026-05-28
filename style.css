@@ -357,17 +357,61 @@ html, body {
   color: var(--text-tertiary);
 }
 
-.puzzle-list {
-  margin-top: 14px;
-  background: var(--bg-secondary);
-  border-radius: var(--radius-lg);
-  padding: 8px;
-  max-height: 320px;
-  overflow-y: auto;
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 100;
+  padding: 0;
+  animation: fade-in 0.15s ease;
 }
 
-.puzzle-list[hidden] {
+.modal-overlay[hidden] {
   display: none;
+}
+
+.modal {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  width: 100%;
+  max-width: 420px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  animation: slide-up 0.2s ease;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 8px;
+  border-bottom: 0.5px solid var(--border-tertiary);
+}
+
+.modal-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.puzzle-list {
+  padding: 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
 }
 
 .puzzle-item {

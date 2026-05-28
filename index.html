@@ -47,8 +47,19 @@
 
     <section id="keyboard" class="keyboard" aria-label="Клавиатура"></section>
 
-    <div id="puzzle-list" class="puzzle-list" hidden></div>
   </main>
+
+  <div id="puzzle-modal" class="modal-overlay" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">Уровни</span>
+        <button id="btn-modal-close" class="btn btn-ghost" aria-label="Закрыть">
+          <i class="ti ti-x" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="puzzle-list" class="puzzle-list"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
