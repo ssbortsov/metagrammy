@@ -185,7 +185,7 @@ function renderLadder() {
   // 1. Старт
   ladder.appendChild(buildRow('0', p.from, {
     kind: 'locked',
-    suffix: 'старт'
+    suffix: ''
   }));
 
   // 2. Подтверждённые ходы
@@ -194,7 +194,7 @@ function renderLadder() {
     ladder.appendChild(buildRow(String(i), state.chain[i], {
       kind: isTarget ? 'target' : 'changed',
       baseWord: state.chain[i - 1],
-      suffix: isTarget ? '<i class="ti ti-trophy" aria-hidden="true"></i> цель' : ''
+      suffix: ''
     }));
   }
 
@@ -232,7 +232,7 @@ function renderLadder() {
     previewWrap.className = 'preview-wrap';
     previewWrap.appendChild(buildRow(String(totalSteps), target, {
       kind: 'target',
-      suffix: 'цель'
+      suffix: ''
     }));
     ladder.appendChild(previewWrap);
   }
