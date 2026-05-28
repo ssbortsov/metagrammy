@@ -265,13 +265,12 @@ html, body {
 }
 
 .cell.empty {
-  border-style: dashed;
-  border-color: var(--border-tertiary);
-  background: transparent;
+  border: 1px solid rgba(200, 200, 200, 0.6);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .cell.future {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .cell.error {
