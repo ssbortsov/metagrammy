@@ -11,14 +11,21 @@
 <body>
   <main id="app">
     <header class="topbar">
-      <button id="btn-puzzles" class="btn btn-ghost" aria-label="Уровни">
+      <button id="btn-puzzles" class="btn btn-topbar" aria-label="Уровни">
         <i class="ti ti-list" aria-hidden="true"></i>
-        <span>Уровни</span>
       </button>
       <div class="task-label" id="task-label">Загадка 1</div>
-      <button id="btn-reset" class="btn btn-ghost" aria-label="Сбросить">
-        <i class="ti ti-refresh" aria-hidden="true"></i>
-      </button>
+      <div class="topbar-right">
+        <button id="btn-hint" class="btn btn-topbar" aria-label="Подсказка">
+          <i class="ti ti-bulb" aria-hidden="true"></i>
+        </button>
+        <button id="btn-undo" class="btn btn-topbar" aria-label="Назад">
+          <i class="ti ti-arrow-back-up" aria-hidden="true"></i>
+        </button>
+        <button id="btn-reset" class="btn btn-topbar" aria-label="Сбросить">
+          <i class="ti ti-refresh" aria-hidden="true"></i>
+        </button>
+      </div>
     </header>
 
     <section class="task-bar" aria-label="Текущая задача">
@@ -31,17 +38,6 @@
     <section id="ladder" class="ladder" aria-label="Лестница превращений"></section>
 
     <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
-
-    <div class="action-row">
-      <button id="btn-hint" class="btn">
-        <i class="ti ti-bulb" aria-hidden="true"></i>
-        <span>Подсказка</span>
-      </button>
-      <button id="btn-undo" class="btn">
-        <i class="ti ti-arrow-back-up" aria-hidden="true"></i>
-        <span>Назад</span>
-      </button>
-    </div>
 
     <button id="btn-check" class="btn btn-check">Проверить</button>
 

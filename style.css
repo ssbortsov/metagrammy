@@ -81,10 +81,33 @@ html, body {
   gap: 8px;
 }
 
+.topbar-right {
+  display: flex;
+  gap: 6px;
+}
+
 .task-label {
   font-size: 13px;
-  color: var(--text-secondary);
+  color: #ffffff;
   text-align: center;
+  flex: 1;
+}
+
+.btn-topbar {
+  background: #ffffff;
+  border: none;
+  padding: 8px;
+  min-height: 36px;
+  width: 36px;
+  color: #EF3124;
+}
+
+.btn-topbar:hover {
+  background: #f0efea;
+}
+
+.btn-topbar i {
+  font-size: 18px;
 }
 
 .btn {
@@ -290,15 +313,6 @@ html, body {
 .feedback.err { color: var(--text-danger); }
 .feedback.hint { color: var(--text-info); }
 
-.action-row {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-.action-row .btn {
-  flex: 1;
-}
 
 .btn-check {
   width: 100%;
